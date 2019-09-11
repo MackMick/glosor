@@ -1,0 +1,25 @@
+# Skrivet av Gustaf
+# den 5/9
+
+def integer():
+    #funtion som frågar efter ett heltal 1-10. Fortsätter tills nöjd. 
+    a = 1
+    
+    while True:
+        print("Skriv ett tal 1 till 10")
+        try:
+            n = int(input("Svar: "))
+       
+        except:
+           print("Du skrev inte ett heltal.\n")
+           integer()
+
+        if (0<n<11):
+            #print(n+1)
+            break
+        else:
+            print("Du skrev inte ett tal 1-10. Försök igen. \n")
+            #print(heltal)
+    return n
+
+print(integer())
