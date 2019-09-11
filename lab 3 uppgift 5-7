@@ -1,0 +1,43 @@
+# Glosor av Gustaf Zachrisson
+# den 9/9
+
+def welcoming():
+    #skriver ut välkomst-meddelande
+    print("Hej och välkommen till glosförhör. Förhöret är uppbyggt av 5st glosor från svenska till engelska. \nDu har 3 chanser att svara på varje glosa.\n")
+
+
+def glosförhör(ord1, ord2):
+    #funktion som hämtar två glosor och frågar efter svar, Ger 1 som returvärde om rätt, 0 om fel
+
+    print("\nVad är översättningen av " + str(ord1) + " på engelska?")
+    answer = input("Svar: ")
+    if ((answer.lower()) == ord2):
+        print("Rätt! Då går vi vidare.")
+        return 1
+    else:
+        print("Tyvärr fel svar. Du kommer nu få nu 2 försök till.")
+        n = 2
+        while (n > 0):
+            print("\nVad är översättningen av "+ str(ord1) + " på engelska?")
+            answer = input("Svar: ")
+            if ((answer.lower()) == ord2):
+                print("Rätt! Då går vi vidare.")
+                return 1
+            else:
+                print("Tyvärr fel svar. Du har nu " + str((n)-1) + " försök kvar.")
+                n = n - 1
+            if (n == 0):
+                (print ("Rätt svar var " + str(ord2) + ". Men vi går vidare."))
+                return 0
+
+welcoming()
+
+svenska =["ko", "groda", "bord", "stol", "arm"]
+engelska=["cow", "frog", "table", "chair", "arm"]
+points = 0
+
+for i in range (0,5):
+    points = points + glosförhör(svenska[i], engelska[i])
+
+print("\nNu är du klar med alla glosor.\nDitt resultat blev: "+str(points) + "st rätt och "+str((len(svenska)-points)) + "st fel.")
+
